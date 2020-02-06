@@ -3,6 +3,7 @@
 void menu(); //Funcion para tener un menu y no llenar el main
 void llenarfilas(int arreglo[5][5]);//Funcion que recibe el arreglo y solo llena filas en columna 0
 void llenarcolumnas(int arreglo[5][5]);//Funcion que recibe el arreglo y solo llena columnas en fila 0
+void llenardiagonal(int arreglo[5][5]);
 void Imprime(int arreglo[5][5]);//Funcion que imprime el arreglo
 
 int main(void){
@@ -20,11 +21,13 @@ int main(void){
     llenarfilas(arreglo);
   else if(opcion==2)
     llenarcolumnas(arreglo);
+  else
+    llenardiagonal(arreglo);
   Imprime(arreglo);
 }
 
 void menu(void){
-  printf("1.- Para llenar solo filas\n2.- Para llenar solo columnas\n");
+  printf("1.- Para llenar solo filas\n2.- Para llenar solo columnas\n3.- Llenar en diagonal\n");
 }
 
 void llenarfilas(int arreglo[5][5]){
@@ -33,6 +36,9 @@ void llenarfilas(int arreglo[5][5]){
     printf("Numero para poner en la fila %i columna 0?\n",filas);
     scanf(" %i",&numero);
     arreglo[filas][0]=numero;
+    /*Solo va a llenar en las filas porque
+    la variable donde van las filas (primer corchete) se va aumentando la posicion con el for
+    mientras que la posicion de las columnas (segundo corchete) esta estatico en 0*/
   }
 }
 
@@ -42,6 +48,18 @@ void llenarcolumnas(int arreglo[5][5]){
     printf("Numero para poner en la fila 0 columna %i?\n",columnas);
     scanf(" %i",&numero);
     arreglo[0][columnas]=numero;
+    /*Solo va a llenar en las columnas porque
+    la variable donde van las filas (primer corchete) esta estatico en 0
+    mientras que la posicion de las columnas (segundo corchete) se va aumentando la posicion con el for*/
+  }
+}
+
+void llenardiagonal(int arreglo[5][5]){
+  int i,numero;
+  for(i=0;i<5;i++){
+    printf("Numero para poner en la fila %i columna %i?\n",i,i);
+    scanf(" %i",&numero);
+    arreglo[i][i]=numero;
   }
 }
 
