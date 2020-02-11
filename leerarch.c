@@ -16,5 +16,11 @@ void leer(char cadena[]){
   gets(nombre);
   archivo=fopen(nombre,"rt");
   fgets(cadena,49,archivo);
+  /*En el fgets hay que poner el numero maximo de caracteres que se quiere leer,
+  hay que tener en cuenta que hay que hacer espacio para el caracter nulo, por eso se pone 
+  el numero de caracteres menos 1*/
+  cadena[strlen(cadena)-1]='\0';
+  /*En Ubuntu por la forma en como estan hechos los archivos hay que borrar un caracter antes
+  porque hay un caracter "invisible" para el salto de linea y el fgets lo lee como un caracter para imprimir*/
   fclose(archivo);
 }
