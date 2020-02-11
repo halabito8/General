@@ -60,6 +60,8 @@ void llenardiagonal(int arreglo[5][5]){
     printf("Numero para poner en la fila %i columna %i?\n",i,i);
     scanf(" %i",&numero);
     arreglo[i][i]=numero;
+    /*Se llena solo en diagonal porque nos estamos despalzando
+    en la misma cantidad en filas y columnas*/
   }
 }
 
